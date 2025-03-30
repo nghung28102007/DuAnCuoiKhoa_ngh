@@ -10,6 +10,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/scrollreveal"></script>
     <style>
+        .loading {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            overflow: show;
+            margin: auto;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+        .loading img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="%23FF156D" stroke="%23FF156D" stroke-width="15" r="15" cx="40" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="%23FF156D" stroke="%23FF156D" stroke-width="15" r="15" cx="100" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="%23FF156D" stroke="%23FF156D" stroke-width="15" r="15" cx="160" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>');
+        }
+
         .blur-content {
             filter: blur(5px);
             pointer-events: none;
@@ -47,6 +68,27 @@
         .article-container {
             position: relative;
         }
+        .featured-article img {
+            transition: none; /* Loại bỏ hiệu ứng chuyển đổi */
+        }
+
+        .featured-article img:hover {
+            transform: none; /* Loại bỏ hiệu ứng di chuyển */
+            margin: 0; /* Đảm bảo không có thay đổi margin */
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .category-tag {
+            animation: blink 1s infinite;
+        }
     </style>
 </head>
 <body>
@@ -75,7 +117,6 @@
         <div class="signin" style="margin-left: auto;">
             <button id="sign-out-btn" onclick="signOut()">Đăng Xuất</button>
         </div>
-    </div>
     </div>
 
     <main class="news-container">
@@ -301,7 +342,7 @@
         function showSlides(n) {
             const slides = document.getElementsByClassName("slide");
             const dots = document.getElementsByClassName("dot");
-            
+            X
             if (n > slides.length) {slideIndex = 1}
             if (n < 1) {slideIndex = slides.length}
             
@@ -326,20 +367,8 @@
             showSlides(slideIndex = n);
         }
 
-        function showLoading() {
-            document.getElementById('loading').style.display = 'block';
-        }
 
-        function hideLoading() {
-            document.getElementById('loading').style.display = 'none';
-        }
-
-        function signOut() {
-            showLoading();
-            setTimeout(() => {
-                window.location.href = '../authenticate/signin.html';
-            }, 1500);
-        }
+        
 
         // Khởi tạo slideshow khi trang tải xong
         window.onload = function() {
@@ -354,6 +383,13 @@
             }, 5000);
         }
 
+        function signOut() {
+             showLoading();
+             setTimeout(() => {
+        window.location.href = '/interface/before.html';
+    }, 1500);
+        }
+
         // ScrollReveal
         ScrollReveal().reveal('.reveal-section', {
             delay: 200,
@@ -362,6 +398,23 @@
             origin: 'bottom',
             easing: 'ease-in-out'
         });
+
+
+
+
+        //Loading
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function signOut() {
+        window.location.href = '/authenticate/signin.html';
+        }
+
     </script>
 </body>
 </html>
