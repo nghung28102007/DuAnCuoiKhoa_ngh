@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức Bóng Đá - MindX Football</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="news.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        .blur-content {
+            filter: blur(5px);
+            pointer-events: none;
+        }
+        .login-overlay {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+        .login-message {
+            font-size: 18px;
+            color: #00529f;
+            margin-bottom: 15px;
+        }
+        .login-button {
+            background: #00529f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .login-button:hover {
+            background: #003f7f;
+        }
+        .article-container {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="news.html"><img src="/img/DALL·E 2025-03-09 14.15.41 - A sleek and modern logo for a football team called 'MindX Football Team'. The design should feature a bold and futuristic font for 'MindX', with the w.webp" alt="" style="width: 50px; height: 50px;"></a>
+        </div>
+        <div class="box">
+            <div class="dropdown">Menu
+                <span class="left-icon" id="left-icon"></span>
+                <span class="right-icon" id="right-icon"></span>
+                <div class="items">
+                    <a href="news.html"><span></span>Tin Tức</a>
+                    <a href="#"><span></span>Vé</a>
+                    <a href="#"><span></span>Tour</a>
+                    <a href="#"><span></span>Cửa Hàng</a>
+                </div>
+            </div>
+        </div>
+        <div class="extra-menu">
+            <a href="news.html"><span></span>Tin Tức</a>
+            <a href="#"><span></span>Vé</a>
+            <a href="#"><span></span>Tour</a>
+            <a href="#"><span></span>Cửa Hàng</a>
+        </div>
+        <div class="signin" style="margin-left: auto;">
+            <button id="sign-out-btn" onclick="signOut()">Đăng Xuất</button>
+        </div>
+    </div>
+    </div>
+
+    <main class="news-container">
+        <section class="featured-news reveal-section">
+            <h1 class="section-title">Tin Tức Mới Nhất</h1>
+            <div class="slideshow-container">
+                <div class="featured-article slide">
+                    <img src="https://source.unsplash.com/800x400/?champions-league" alt="Champions League">
+                    <div class="article-content">
+                        <h2>Tứ Kết Champions League: Cuộc Chiến Khốc Liệt</h2>
+                        <p class="article-meta">15 Tháng 3, 2024 | Bóng Đá Châu Âu</p>
+                        <p class="article-excerpt">Phân tích chi tiết các cặp đấu tứ kết và dự đoán những điều bất ngờ có thể xảy ra...</p>
+                        <a href="#" class="read-more">Xem Thêm</a>
+                    </div>
+                </div>
+
+                <div class="featured-article slide">
+                    <img src="https://source.unsplash.com/800x400/?premier-league" alt="Premier League">
+                    <div class="article-content">
+                        <h2>Cuộc Đua Vô Địch Premier League Căng Thẳng</h2>
+                        <p class="article-meta">15 Tháng 3, 2024 | Ngoại Hạng Anh</p>
+                        <p class="article-excerpt">Chỉ còn vài vòng đấu, cuộc đua vô địch trở nên gay cấn với nhiều đội bóng còn cơ hội...</p>
+                        <a href="#" class="read-more">Xem Thêm</a>
+                    </div>
+                </div>
+
+                <div class="featured-article slide">
+                    <img src="https://source.unsplash.com/800x400/?football-world-cup" alt="World Cup">
+                    <div class="article-content">
+                        <h2>Chuẩn Bị World Cup 2026</h2>
+                        <p class="article-meta">15 Tháng 3, 2024 | Bóng Đá Quốc Tế</p>
+                        <p class="article-excerpt">Các quốc gia đăng cai đẩy nhanh tiến độ xây dựng sân vận động và cơ sở hạ tầng...</p>
+                        <a href="#" class="read-more">Xem Thêm</a>
+                    </div>
+                </div>
+
+                <div class="featured-article slide">
+                    <img src="https://source.unsplash.com/800x400/?football-transfer" alt="Transfer News">
+                    <div class="article-content">
+                        <h2>Thị Trường Chuyển Nhượng Sôi Động</h2>
+                        <p class="article-meta">15 Tháng 3, 2024 | Chuyển Nhượng</p>
+                        <p class="article-excerpt">Các CLB hàng đầu châu Âu chuẩn bị cho kỳ chuyển nhượng mùa hè với nhiều thương vụ bom tấn...</p>
+                        <a href="#" class="read-more">Xem Thêm</a>
+                    </div>
+                </div>
+
+                <div class="featured-article slide">
+                    <img src="https://source.unsplash.com/800x400/?football-stadium" alt="Stadium News">
+                    <div class="article-content">
+                        <h2>Công Nghệ Sân Vận Động Tương Lai</h2>
+                        <p class="article-meta">15 Tháng 3, 2024 | Công Nghệ</p>
+                        <p class="article-excerpt">Những tính năng thông minh mới sẽ mang đến trải nghiệm hoàn toàn khác biệt cho người hâm mộ...</p>
+                        <a href="#" class="read-more">Xem Thêm</a>
+                    </div>
+                </div>
+
+                <!-- Navigation arrows -->
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+                <!-- Navigation dots -->
+                <div class="dot-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-grid">
+            <!-- Team News -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Tin Đội Bóng</div>
+                <img src="https://source.unsplash.com/400x300/?manchester-city" alt="Manchester City">
+                <div class="card-content">
+                    <h3>Man City Bảo Vệ Ngôi Vương</h3>
+                    <p class="article-meta">14 Tháng 3, 2024</p>
+                    <p>Phân tích chiến lược giúp Manchester City bảo vệ ngôi vô địch Premier League...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <article class="news-card reveal-section">
+                <div class="category-tag">Tin Đội Bóng</div>
+                <img src="https://source.unsplash.com/400x300/?real-madrid" alt="Real Madrid">
+                <div class="card-content">
+                    <h3>Real Madrid: Cuộc Cách Mạng Trẻ</h3>
+                    <p class="article-meta">13 Tháng 3, 2024</p>
+                    <p>Real Madrid đang xây dựng tương lai với những tài năng trẻ...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <!-- Upcoming Matches -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Trận Đấu</div>
+                <img src="https://source.unsplash.com/400x300/?football-stadium-night" alt="El Clásico">
+                <div class="card-content">
+                    <h3>Siêu Kinh Điển: Barca - Real</h3>
+                    <p class="article-meta">12 Tháng 3, 2024</p>
+                    <p>Trận đấu được mong chờ nhất La Liga sắp trở lại...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <!-- Transfer News -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Chuyển Nhượng</div>
+                <img src="https://source.unsplash.com/400x300/?football-transfer" alt="Transfer News">
+                <div class="card-content">
+                    <h3>Thị Trường Hè 2024</h3>
+                    <p class="article-meta">11 Tháng 3, 2024</p>
+                    <p>Những thương vụ đáng chú ý trong kỳ chuyển nhượng sắp tới...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <!-- Nutrition -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Sức Khỏe</div>
+                <img src="https://source.unsplash.com/400x300/?healthy-food-athlete" alt="Nutrition">
+                <div class="card-content">
+                    <h3>Chế Độ Dinh Dưỡng Cầu Thủ</h3>
+                    <p class="article-meta">10 Tháng 3, 2024</p>
+                    <p>Khám phá bí quyết dinh dưỡng của các cầu thủ chuyên nghiệp...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <!-- Stadium News -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Sân Vận Động</div>
+                <img src="https://source.unsplash.com/400x300/?modern-stadium" alt="Stadium">
+                <div class="card-content">
+                    <h3>Top Sân Vận Động Hiện Đại</h3>
+                    <p class="article-meta">9 Tháng 3, 2024</p>
+                    <p>Khám phá những sân vận động hiện đại nhất thế giới...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <!-- Training Methods -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Huấn Luyện</div>
+                <img src="https://source.unsplash.com/400x300/?football-training" alt="Training">
+                <div class="card-content">
+                    <h3>Phương Pháp Huấn Luyện Mới</h3>
+                    <p class="article-meta">8 Tháng 3, 2024</p>
+                    <p>Công nghệ đang thay đổi cách huấn luyện bóng đá...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <!-- Youth Development -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Đào Tạo Trẻ</div>
+                <img src="https://source.unsplash.com/400x300/?youth-football" alt="Youth Football">
+                <div class="card-content">
+                    <h3>Thế Hệ Ngôi Sao Tương Lai</h3>
+                    <p class="article-meta">7 Tháng 3, 2024</p>
+                    <p>Những tài năng trẻ đáng chú ý trong làng bóng đá...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <!-- Tactical Analysis -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Chiến Thuật</div>
+                <img src="https://source.unsplash.com/400x300/?football-tactics" alt="Tactics">
+                <div class="card-content">
+                    <h3>Chiến Thuật Hiện Đại</h3>
+                    <p class="article-meta">6 Tháng 3, 2024</p>
+                    <p>Sự phát triển của chiến thuật trong bóng đá hiện đại...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <!-- Fan Culture -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Văn Hóa</div>
+                <img src="https://source.unsplash.com/400x300/?football-fans" alt="Fan Culture">
+                <div class="card-content">
+                    <h3>Văn Hóa CĐV Bóng Đá</h3>
+                    <p class="article-meta">5 Tháng 3, 2024</p>
+                    <p>Khám phá văn hóa cổ động viên độc đáo trên thế giới...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <!-- Technology in Football -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Công Nghệ</div>
+                <img src="https://source.unsplash.com/400x300/?sports-technology" alt="Technology">
+                <div class="card-content">
+                    <h3>VAR: Tương Lai Trọng Tài</h3>
+                    <p class="article-meta">4 Tháng 3, 2024</p>
+                    <p>Công nghệ đang thay đổi cách điều hành trận đấu...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+
+            <!-- Historical Feature -->
+            <article class="news-card reveal-section">
+                <div class="category-tag">Lịch Sử</div>
+                <img src="https://source.unsplash.com/400x300/?vintage-football" alt="Football History">
+                <div class="card-content">
+                    <h3>Những Trận Đấu Lịch Sử</h3>
+                    <p class="article-meta">3 Tháng 3, 2024</p>
+                    <p>Nhìn lại những trận đấu để đời trong lịch sử...</p>
+                    <a href="#" class="read-more">Xem Thêm</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        let slideIndex = 1;
+        let slideInterval;
+
+        function showSlides(n) {
+            const slides = document.getElementsByClassName("slide");
+            const dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+
+            // Tự động chuyển slide sau 5 giây
+            clearTimeout(slideTimer);
+            slideTimer = setTimeout(() => changeSlide(1), 5000);
+        }
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function signOut() {
+            showLoading();
+            setTimeout(() => {
+                window.location.href = '../authenticate/signin.html';
+            }, 1500);
+        }
+
+        // Khởi tạo slideshow khi trang tải xong
+        window.onload = function() {
+            showSlides(slideIndex);
+            startSlideshow();
+        }
+
+        // Khởi động slideshow tự động
+        function startSlideshow() {
+            slideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 5000);
+        }
+
+        // ScrollReveal
+        ScrollReveal().reveal('.reveal-section', {
+            delay: 200,
+            distance: '50px',
+            duration: 1000,
+            origin: 'bottom',
+            easing: 'ease-in-out'
+        });
+    </script>
+</body>
+</html>
